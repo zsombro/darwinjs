@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="darwin.js"></script>
+		<script>
+		var p;
+		var d;
+		
+		function init() {
+			d = document.getElementById("output");
+			d.innerHTML="";
+			
+			p = new darwin.Population(100, 0.5);
+			p.populate(Entity);
+			d.innerHTML += "New population of " + p.size + " entities<br>";
+			d.innerHTML += "Average fitness is " + p.averageFitness() + "<br>";
+			p.selection();
+			d.innerHTML += "Selection of " + p.sel.length + " entities<br>";
+			p.crossover();
+			d.innerHTML += "A crossover was done. New average fitness is " + p.averageFitness() + "<br>";
+		}
+		
+		function Entity() {
+			this.gene = Math.floor(Math.random()*100)+1;
+		}
+		
+		Entity.prototype.fitness = function () {
+			return 1/this.gene;
+		}
+		
+		Entity.prototype.crossover = function(b) {
+			// operator for breeding n+1 generation
+			var ad = Math.abs(0.5-this.gene);
+			var bd = Math.abs(0.5-b.gene);
+			
+			return bd < ad ? b : this;
+		}
+		
+		Entity.prototype.mutate = function() {
+			// operator for mutating individual entities
+		}
+		</script>
+	</head>
+	<body onload="init();">
+	<button onclick="init();">Reset</button>
+	<div id="output">
+	</div>
+	</body>
+</html>
