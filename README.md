@@ -1,6 +1,6 @@
 # darwin.js
 darwin.js is a small library written in JavaScript to aid the creation of simple genetic algorithms in the browser.
-It doesn't do any fancy does, but what it does can be done pretty quickly and simply. It's not really meant to be a robust
+It doesn't do any fancy stuff, but what it does can be done pretty quickly and simply. It's not really meant to be a robust
 soft computing library, instead it's a simple tool for educational and prototyping purposes. 
 
 ## It's actually pretty easy to use
