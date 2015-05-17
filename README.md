@@ -4,11 +4,11 @@ It doesn't do any fancy stuff, but what it does can be done pretty quickly and s
 soft computing library, instead it's a simple tool for educational and prototyping purposes. 
 
 ## It's actually pretty easy to use
-It's not exaclty rocket science to get started with ```darwin.js```. To create a population of objects, just import the library
-on an HTML page and add use something similar to this piece of code:
+It's not exactly rocket science to get started with ```darwin.js```. To create a population of objects, just import the library
+on an HTML page and add something similar to this piece of code:
 
 ```javascript
-var p = new darwin.Population(100, 0.5);
+var p = new darwin.Population(100, 0.5); // a population of 100 entities with a target fitness of 0.5
 p.populate(Entity);
 ```
 
@@ -29,4 +29,4 @@ That's basically it.
 
 ###Things I'd like to add in the future
 - More selection methods. Right now, only the roulette wheel selection can be performed.
-- An easy way to visualize these operations (think graphs), preferably on a 2d canvas.
+- An easy way to visualize data (think stuff like graphs), preferably on a 2d canvas.
