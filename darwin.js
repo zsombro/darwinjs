@@ -1,8 +1,7 @@
 var darwin = (function(global){
 
-	function Population(size, targetFitness) {
+	function Population(size) {
 		this.size = size;
-		this.targetFitness = targetFitness;
 		this.generation = 0;
 		
 		this.pop = [];

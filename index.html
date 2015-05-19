@@ -10,7 +10,7 @@
 			d = document.getElementById("output");
 			d.innerHTML="";
 			
-			p = new darwin.Population(100, 0.5);
+			p = new darwin.Population(100);
 			p.populate(Entity);
 			d.innerHTML += "New population of " + p.size + " entities<br>";
 			d.innerHTML += "Average fitness is " + p.averageFitness() + "<br>";
@@ -22,6 +22,7 @@
 		
 		function Entity() {
 			this.gene = Math.floor(Math.random()*100)+1;
+			this.targetFitness = 0.5;
 		}
 		
 		Entity.prototype.fitness = function () {
@@ -30,8 +31,8 @@
 		
 		Entity.prototype.crossover = function(b) {
 			// operator for breeding n+1 generation
-			var ad = Math.abs(0.5-this.gene);
-			var bd = Math.abs(0.5-b.gene);
+			var ad = Math.abs(this.targetFitness-this.gene);
+			var bd = Math.abs(this.targetFitness-b.gene);
 			
 			return bd < ad ? b : this;
 		}
