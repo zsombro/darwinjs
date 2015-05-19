@@ -8,8 +8,8 @@ It's not exactly rocket science to get started with ```darwin.js```. To create a
 on an HTML page and add something similar to this piece of code:
 
 ```javascript
-// a population of 100 entities with a target fitness of 0.5
-var p = new darwin.Population(100, 0.5); 
+// a population of 100 entities
+var p = new darwin.Population(100); 
 p.populate(Entity);
 ```
 
