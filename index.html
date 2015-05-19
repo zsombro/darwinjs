@@ -26,13 +26,15 @@
 		}
 		
 		Entity.prototype.fitness = function () {
-			return 1/this.gene;
+			var diff = Math.abs(this.targetFitness - (1/this.gene));
+			var fit = 100 / (0.5*diff + 1);
+			return fit;
 		}
 		
 		Entity.prototype.crossover = function(b) {
 			// operator for breeding n+1 generation
-			var ad = Math.abs(this.targetFitness-this.gene);
-			var bd = Math.abs(this.targetFitness-b.gene);
+			var ad = Math.abs(this.targetFitness-1/this.gene);
+			var bd = Math.abs(this.targetFitness-1/b.gene);
 			
 			return bd < ad ? b : this;
 		}

@@ -66,7 +66,7 @@ var darwin = (function(global){
 			
 		// roulette selection
 		for (var i = 0; i < select; i++) {
-			var probability = Math.floor(Math.random() * fsum);
+			var probability = Math.floor(Math.random());
 			
 			for (var j = 0; j < object.size; j++) {
 				if (object.pop[j].relativeFitness > probability)
