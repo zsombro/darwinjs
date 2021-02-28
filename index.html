@@ -1,52 +1,52 @@
 <!doctype html>
 <html>
-	<head>
-		<script src="darwin.js"></script>
-		<script>
-		var p;
-		var d;
-		
+
+<body>
+	<button onclick="init();">Reset</button>
+	<div id="output">
+	</div>
+	<script src="dist/main.js"></script>
+	<script>
+		class Entity {
+
+			constructor() {
+				this.gene = Math.floor(Math.random() * 100) + 1;
+				this.targetFitness = 0.5;
+			}
+
+			fitness() {
+				var diff = Math.abs(this.targetFitness - (1 / this.gene));
+				var fit = 100 / (0.5 * diff + 1);
+				return fit;
+			}
+
+			crossover(b) {
+				// operator for breeding n+1 generation
+				var ad = Math.abs(this.targetFitness - 1 / this.gene);
+				var bd = Math.abs(this.targetFitness - 1 / b.gene);
+
+				return bd < ad ? b : this;
+			}
+
+			mutate() { }
+		}
+
 		function init() {
-			d = document.getElementById("output");
-			d.innerHTML="";
-			
-			p = new darwin.Population(100);
+			const d = document.getElementById("output");
+			d.innerHTML = "";
+
+			const p = new Darwin.Population(100);
 			p.populate(Entity);
 			d.innerHTML += "New population of " + p.size + " entities<br>";
 			d.innerHTML += "Average fitness is " + p.averageFitness() + "<br>";
 			p.selection();
-			d.innerHTML += "Selection of " + p.sel.length + " entities<br>";
+			d.innerHTML += "Selection of " + p.selectedEntities.length + " entities<br>";
 			p.crossover();
 			d.innerHTML += "A crossover was done. New average fitness is " + p.averageFitness() + "<br>";
 		}
-		
-		function Entity() {
-			this.gene = Math.floor(Math.random()*100)+1;
-			this.targetFitness = 0.5;
-		}
-		
-		Entity.prototype.fitness = function () {
-			var diff = Math.abs(this.targetFitness - (1/this.gene));
-			var fit = 100 / (0.5*diff + 1);
-			return fit;
-		}
-		
-		Entity.prototype.crossover = function(b) {
-			// operator for breeding n+1 generation
-			var ad = Math.abs(this.targetFitness-1/this.gene);
-			var bd = Math.abs(this.targetFitness-1/b.gene);
-			
-			return bd < ad ? b : this;
-		}
-		
-		Entity.prototype.mutate = function() {
-			// operator for mutating individual entities
-		}
-		</script>
-	</head>
-	<body onload="init();">
-	<button onclick="init();">Reset</button>
-	<div id="output">
-	</div>
-	</body>
+
+		init();
+	</script>
+</body>
+
 </html>

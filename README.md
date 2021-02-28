@@ -3,8 +3,8 @@ darwin.js is a small library written in JavaScript to aid the creation of simple
 It doesn't do any fancy stuff, but what it does can be done pretty quickly and simply. It's not really meant to be a robust
 soft computing library, instead it's a simple tool for educational and prototyping purposes. 
 
-## It's actually pretty easy to use
-It's not exactly rocket science to get started with ```darwin.js```. To create a population of objects, just import the library
+## Usage
+To create a population of objects, just import the library
 on an HTML page and add something similar to this piece of code:
 
 ```javascript
