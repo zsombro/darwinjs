@@ -9,7 +9,7 @@ on an HTML page and add something similar to this piece of code:
 
 ```javascript
 // a population of 100 entities
-var p = new darwin.Population(100); 
+var p = new Darwin.Population(100); 
 p.populate(Entity);
 ```
 
@@ -28,6 +28,6 @@ p.crossover();
 
 That's basically it.
 
-###Things I'd like to add in the future
+### Things I'd like to add in the future
 - More selection methods. Right now, only the roulette wheel selection can be performed.
 - An easy way to visualize data (think stuff like graphs), preferably on a 2d canvas.
